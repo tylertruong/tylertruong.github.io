@@ -1,7 +1,8 @@
 const links = document.querySelector('.links');
 const portfolio = document.querySelector('.portfolio');
+const topBanner = document.querySelector('.top-banner');
 
-let socialMedia = [{name: 'github', url:'https://github.com/tylertruong' }, {name: 'linkedin', url:'https://www.linkedin.com/in/tyler-truong/' }, {name: 'email', url:'mailto:me@tylertruong.com'}];
+const socialMedia = [{name: 'resume', url:'resume.pdf' }, {name: 'github', url:'https://github.com/tylertruong' }, {name: 'linkedin', url:'https://www.linkedin.com/in/tyler-truong/' }, {name: 'email', url:'mailto:me@tylertruong.com'}];
 
 let repos = [];
 
@@ -10,6 +11,7 @@ const goTo = (url) => {
 };
 
 const makePortfolio = (array) => {
+
     portfolio.innerHTML = array.map(repo => `
         <div class="project" onclick="goTo('${repo.html_url}')">
             ${repo.name}
@@ -17,22 +19,24 @@ const makePortfolio = (array) => {
     `).join("")
 }
 
-links.innerHTML = socialMedia.map(media => `
+const renderProjects = () => {
+    topBanner.style.alignItems = 'flex-start';
+    topBanner.style.height = 'unset';
+    topBanner.style.justifyContent = 'space-between';
+    fetch('https://api.github.com/users/tylertruong/repos?type=all')
+        .then(data => data.json())
+        .then(newRepos => {
+            repos = repos.concat(newRepos);
+            makePortfolio(repos);
+        });    
+}
+
+const media = socialMedia.map(media => `
     <a class="link" href="${media.url}"">${media.name}</a>
     `).join('');
 
-// fetch('https://api.github.com/orgs/model-airbnb/repos')
-//     .then(data => data.json())
-//     .then(newRepos => {
-//         repos.concat(newRepos);
-//         makePortfolio(repos);
-//     });
+links.innerHTML = links.innerHTML.concat(media);
 
-fetch('https://api.github.com/users/tylertruong/repos?type=all')
-    .then(data => data.json())
-    .then(newRepos => {
-        repos = repos.concat(newRepos);
-        makePortfolio(repos);
-    });
+
 
 

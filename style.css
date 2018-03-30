@@ -9,9 +9,11 @@ a {
 
 .top-banner {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-evenly;
     margin: auto;
+    height: 100vh;
+    transition: all 1s ease-out;
 }
 
 .photo {
@@ -56,7 +58,10 @@ a {
 }
 
 .link {
+    cursor: pointer;
+    text-decoration: none;
     margin: .25em;
+    color: inherit;
 }
 
 .portfolio {
