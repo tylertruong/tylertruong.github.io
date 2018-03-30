@@ -13,6 +13,7 @@ a {
     justify-content: space-between;
     margin: auto;
 }
+
 .photo {
     width: 16em;
     height: 16em;
@@ -20,6 +21,7 @@ a {
     overflow: hidden;
     border-radius: 50%;
     margin: 2em;
+    background-size: auto 100%;
 }
 
 .header {
@@ -27,6 +29,7 @@ a {
     font-size: 2em;
     letter-spacing: .25em;
     margin: .5em 0;
+    text-align: right;
 }
 .subtitle {
     margin: 0 0 .5em 0;
@@ -38,6 +41,7 @@ a {
     align-items: flex-end;
     margin: 2em;
     font-size: 1.5em;
+
 }
 
 .pic {
@@ -82,12 +86,23 @@ a {
 }
 
 .project:nth-child(even) {
-    background-color: mistyrose;
+    background-color: whitesmoke;
 }
 
-@media only screen and (max-device-width: 480px) {
+@media screen and (max-width: 50em), screen and (orientation:portrait) {
   .portfolio {
     grid-template-columns: 1fr;
+  }
+  .summary {
+    align-items: center;
+    text-align: center;
+  }
+  .header {
+    text-align: center;
+  }
+  .top-banner {
+      flex-direction: column;
+      align-items: center;
   }
 }
 
