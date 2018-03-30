@@ -13,7 +13,12 @@ a {
     justify-content: space-evenly;
     margin: auto;
     height: 100vh;
-    transition: all 1s ease-out;
+}
+
+.top-banner-projects {
+    align-items: flex-start;
+    justify-content: space-between;
+    height: unset;
 }
 
 .photo {
@@ -108,6 +113,10 @@ a {
   }
   .top-banner {
       flex-direction: column;
+      align-items: center;
+  }
+
+  .top-banner-projects {
       align-items: center;
   }
 }

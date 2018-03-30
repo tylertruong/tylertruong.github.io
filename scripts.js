@@ -20,9 +20,7 @@ const makePortfolio = (array) => {
 }
 
 const renderProjects = () => {
-    topBanner.style.alignItems = 'flex-start';
-    topBanner.style.height = 'unset';
-    topBanner.style.justifyContent = 'space-between';
+    topBanner.classList.add('top-banner-projects');
     fetch('https://api.github.com/users/tylertruong/repos?type=all')
         .then(data => data.json())
         .then(newRepos => {
