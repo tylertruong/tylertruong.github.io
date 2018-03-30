@@ -1,5 +1,5 @@
 const links = document.querySelector('.links');
-const portfolio = document.querySelector('.portfolio');
+const portfolio = document.querySelector('.port');
 const topBanner = document.querySelector('.top-banner');
 
 const socialMedia = [{name: 'resume', url:'resume.pdf' }, {name: 'github', url:'https://github.com/tylertruong' }, {name: 'linkedin', url:'https://www.linkedin.com/in/tyler-truong/' }, {name: 'email', url:'mailto:me@tylertruong.com'}];
@@ -11,7 +11,7 @@ const goTo = (url) => {
 };
 
 const makePortfolio = (array) => {
-
+    portfolio.classList.add('portfolio');
     portfolio.innerHTML = array.map(repo => `
         <div class="project" onclick="goTo('${repo.html_url}')">
             ${repo.name}
