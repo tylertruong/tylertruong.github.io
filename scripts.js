@@ -7,7 +7,7 @@ const socialMedia = [{name: 'resume', url:'resume.pdf' }, {name: 'github', url:'
 let repos = [];
 
 const goTo = (url) => {
-    window.location = url;
+    window.open(url);
 };
 
 const makePortfolio = (array) => {
@@ -30,7 +30,7 @@ const renderProjects = () => {
 }
 
 const media = socialMedia.map(media => `
-    <a class="link" href="${media.url}"">${media.name}</a>
+    <a class="link" target="_blank" href="${media.url}"">${media.name}</a>
     `).join('');
 
 links.innerHTML = links.innerHTML.concat(media);
