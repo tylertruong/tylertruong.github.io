@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Tyler Truong — Engineering Manager at Meta, New York, NY." />
+    <link rel="icon" href="data:," />
+    <title>Tyler Truong — Engineering Manager at Meta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #FAFAF7;
+        --heading: #141519;
+        --text: #3B3A36;
+        --bio: #4A4842;
+        --sub: #8E897D;
+        --photo-border: #E4DFD3;
+        --panel: #F1EEE6;
+        --accent: #A87C4F;
+        --toggle: #A39D90;
+        color-scheme: light;
+      }
+      :root[data-theme="dark"] {
+        --bg: #0A0E14;
+        --heading: #ECEEF2;
+        --text: #C6CBD4;
+        --bio: #AEB4BF;
+        --sub: #6E7482;
+        --photo-border: #26303E;
+        --panel: #12161D;
+        --accent: #C9A06A;
+        --toggle: #5B6472;
+        color-scheme: dark;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        min-height: 100svh;
+        padding: 32px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      :focus-visible { outline: 2px solid var(--heading); outline-offset: 3px; }
+
+      .page {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+      }
+      .site-header {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+      .header-text { flex: 1; min-width: 0; }
+      .theme-toggle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 4px;
+        line-height: 0;
+        background: none;
+        border: 0;
+        color: var(--toggle);
+        cursor: pointer;
+      }
+      .theme-toggle:hover { color: var(--heading); }
+      .theme-toggle svg { width: 18px; height: 18px; display: block; }
+      .theme-toggle .icon-sun { display: none; }
+      :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+      :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+      h1 {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: -0.015em;
+        color: var(--heading);
+        margin: 0 0 2.4px 0;
+      }
+      .photo {
+        flex: none;
+        display: block;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 2px solid var(--photo-border);
+        object-fit: cover;
+        margin: 0;
+      }
+      .role {
+        font-size: 13.6px;
+        font-weight: 300;
+        color: var(--sub);
+        margin: 0;
+        overflow-wrap: break-word;
+      }
+      .bio {
+        font-size: 16.8px;
+        font-weight: 400;
+        line-height: 1.8;
+        color: var(--bio);
+        overflow-wrap: break-word;
+      }
+      .bio p { margin: 0 0 16.8px; }
+      .bio p:last-child { margin-bottom: 0; }
+
+      a { color: inherit; }
+      .bio a {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-decoration-color: var(--accent);
+        text-underline-offset: 3px;
+      }
+      .bio a:hover, .bio a:focus-visible {
+        color: var(--heading);
+      }
+
+      .highlights { margin-top: 32px; }
+      .highlights h2 {
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: normal;
+        color: var(--heading);
+        margin: 0 0 14px;
+      }
+      .proud {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .proud li {
+        font-size: 16.8px;
+        font-weight: 400;
+        line-height: 1.7;
+        color: var(--text);
+        background: var(--panel);
+        border-radius: 10px;
+        padding: 20px 22px;
+        margin: 0 0 12px;
+        overflow-wrap: break-word;
+      }
+      .proud li:last-child { margin-bottom: 0; }
+      .proud strong {
+        font-weight: 600;
+        color: var(--heading);
+      }
+
+      .social {
+        margin-top: 32px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .social a {
+        display: inline-flex;
+        color: var(--sub);
+        text-decoration: none;
+      }
+      .social a:hover, .social a:focus-visible { color: var(--accent); }
+      .social svg { width: 20px; height: 20px; display: block; }
+
+      @media (max-width: 500px) {
+        body { padding: 20px; }
+        .site-header { gap: 16px; }
+      }
+      @media (max-width: 380px) {
+        .photo { width: 64px; height: 64px; }
+      }
+    </style>
+    <script>
+      (function () {
+        var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+      })();
+    </script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="site-header">
+        <img class="photo" src="data:image/jpeg;base64,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" alt="Portrait of Tyler Truong" width="80" height="80" />
+        <div class="header-text">
+          <h1>Tyler Truong</h1>
+          <p class="role">Engineering Manager at Meta · New York, NY</p>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+      </header>
+
+      <div class="bio">
+        <p>I'm an engineering manager in New York at <a href="https://www.meta.com">Meta</a>, where I lead the server migration moving <a href="https://www.instagram.com">Instagram</a> onto Meta's server platform, due to finish by the end of 2026.</p>
+        <p>Before that, at <a href="https://www.threads.com">Threads</a>, I led product-heavy work on engagement and valuable production, and built the teams behind Threads on the web, its connection to the open social web, and its data-portability work. Earlier I owned Instagram's website, launched Instagram Direct on desktop, and — before Meta — worked at omNovia and DTS. I studied applied mathematics at UC Berkeley.</p>
+      </div>
+
+      <section class="highlights">
+        <h2>A few things I'm proud of:</h2>
+        <ul class="proud">
+          <li>Drove Instagram code running on Meta's server platform from <strong>63.7% to 86%</strong> in the first half of 2026, contributing to <strong>~$23M</strong> a year in server-capacity savings</li>
+          <li>Led Threads' engagement and valuable production — set the product strategy for both; valuable production beat its goal, hitting <strong>95.7K</strong> daily against <strong>85K</strong></li>
+          <li>Built Threads Web and led its Fediverse launch — the first Meta product to connect to the open social web; daily visits from search grew from <strong>138K to 2.5M</strong></li>
+          <li>Built Instagram Direct on desktop: <strong>+10.1M</strong> monthly users, <strong>+57M</strong> messages a day</li>
+          <li>Direct-report satisfaction of <strong>90–100%</strong> across four teams; <strong>5.0/5.0</strong> feedback from my team</li>
+        </ul>
+      </section>
+
+      <div class="social">
+        <a href="https://www.linkedin.com/in/tyler-truong" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+        <a href="mailto:tyler@tylertruong.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+      </div>
+    </main>
+    <script>
+      document.getElementById("theme-toggle").addEventListener("click", function () {
+        var root = document.documentElement;
+        root.setAttribute("data-theme", root.getAttribute("data-theme") === "dark" ? "light" : "dark");
+      });
+    </script>
+  </body>
+</html>
